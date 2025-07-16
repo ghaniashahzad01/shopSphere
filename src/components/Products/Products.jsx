@@ -89,7 +89,109 @@ const Products = () => {
       { breakpoint: 640, settings: { slidesToShow: 1, slidesToScroll: 1 }},
     ],
   };
+return (
+    <section id="products" className="py-14 dark:bg-slate-950 dark:text-white">
+      <div className="container">
+        <div className="text-center mb-10 max-w-xl mx-auto">
+          <p className="text-primary font-semibold">Top Selling Products</p>
+          <h2 className="text-4xl font-bold">Our Products</h2>
+          <p className="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+            Explore the trending items across all categories.
+          </p>
+        </div>
 
+        <Slider {...settings}>
+          {ProductsData.map((item) => (
+            <div key={item.id} className="px-3">
+              <div
+                onClick={() => {
+                  setSelected(item);
+                  setQuantity(1);
+                }}
+                className="bg-white dark:bg-slate-800 rounded-lg shadow hover:shadow-lg duration-300 p-4 cursor-pointer group"
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="h-48 w-40 mx-auto object-cover rounded-lg group-hover:scale-105 transition-all"
+                />
+                <div className="text-center mt-3">
+                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-300">{item.color}</p>
+                  <div className="flex justify-center items-center gap-1 mt-2">
+                    <FaStar className="text-yellow-400" />
+                    <span>{item.rating}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+
+        {/* Modal */}
+        {selected && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+            <div className="bg-white dark:bg-slate-800 rounded-xl shadow-xl p-6 w-full max-w-xl relative animate-fadeIn">
+              <button
+                onClick={() => setSelected(null)}
+                className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-primary"
+              >
+                ✕
+              </button>
+              <div className="flex flex-col sm:flex-row gap-6">
+                <img
+                  src={selected.img}
+                  alt={selected.title}
+                  className="w-full sm:w-48 h-48 object-cover rounded-lg mx-auto"
+                />
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold mb-2">{selected.title}</h3>
+                  <p className="text-gray-500 dark:text-gray-300 mb-2">{selected.description}</p>
+                  <p className="text-xl text-primary font-bold mb-4">₹{selected.price}</p>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span>Qty:</span>
+                    <button
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      className="px-2 py-1 bg-gray-200 dark:bg-slate-700 rounded"
+                    >
+                      -
+                    </button>
+                    <span>{quantity}</span>
+                    <button
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="px-2 py-1 bg-gray-200 dark:bg-slate-700 rounded"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div className="flex gap-4">
+                    <button
+                      onClick={() => {
+                        const newItem = { ...selected, quantity };
+                        console.log("Added to Cart:", newItem);
+                        alert("Added to cart successfully!");
+                      }}
+                      className="bg-gradient-to-r from-primary to-secondary hover:scale-105 transition text-white px-4 py-2 rounded-full"
+                    >
+                      Add to Cart
+                    </button>
+                    <button
+                      onClick={() => {
+                        alert(`Proceeding to buy: ${selected.title} x ${quantity}`);
+                      }}
+                      className="bg-green-600 hover:bg-green-700 transition text-white px-4 py-2 rounded-full"
+                    >
+                      Buy Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
   
 };
   
