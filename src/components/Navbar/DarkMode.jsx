@@ -23,7 +23,17 @@ const DarkMode = () => {
   };
 
   return (
-    
+    <button
+      onClick={toggleTheme}
+      aria-label="Toggle Dark Mode"
+      className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-yellow-300 transition-all duration-300 hover:scale-110"
+    >
+      {theme === "dark" ? (
+        <FiSun className="text-xl animate-spin-slow" />
+      ) : (
+        <FiMoon className="text-xl" />
+      )}
+    </button>
   );
 };
 
