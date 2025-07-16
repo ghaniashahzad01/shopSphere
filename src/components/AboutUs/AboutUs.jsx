@@ -68,6 +68,21 @@ const AboutUs = () => {
             </p>
           </div>
 
+            {/* Our Mission */}
+          <div
+            className="bg-white/80 dark:bg-white/10 backdrop-blur p-8 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+            onClick={() => console.log("Clicked: Our Mission")}
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <FaGlobe className="text-5xl mb-4 text-primary group-hover:text-secondary transition-colors duration-300" />
+            <h3 className="text-2xl font-semibold mb-3">Our Mission</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+              We strive to empower customers through high-quality products and
+              exceptional service, fostering a community of innovation and
+              style.
+            </p>
+          </div>
         
         </div>
       </div>
