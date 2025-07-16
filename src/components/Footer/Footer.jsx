@@ -44,7 +44,41 @@ const Footer = () => {
             ))}
           </ul>
         </div>
+     
+      {/* Contact & Social */}
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h3 className="text-xl font-semibold mb-4 text-white">Contact Us</h3>
 
+          <div className="flex items-start gap-3 mb-4">
+            <FaMapLocationDot className="text-primary mt-1" />
+            <p className="text-gray-400 text-sm leading-relaxed">
+              221B Baker Street, London, United Kingdom
+            </p>
+          </div>
+
+          <div className="flex items-start gap-3 mb-6">
+            <IoCall className="text-primary mt-1" />
+            <p className="text-gray-400 text-sm">+44 20 7946 0958</p>
+          </div>
+
+          <div className="flex gap-4">
+            <a href="#" className="text-xl text-gray-400 hover:text-primary transition duration-300 hover:scale-110">
+              <FaInstagram />
+            </a>
+            <a href="#" className="text-xl text-gray-400 hover:text-primary transition duration-300 hover:scale-110">
+              <FaFacebook />
+            </a>
+            <a href="#" className="text-xl text-gray-400 hover:text-primary transition duration-300 hover:scale-110">
+              <FaLinkedin />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="mt-12 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+        &copy; {new Date().getFullYear()} Ghania Shahzad. All rights reserved.
+      </div>
        
     </footer>
   );
