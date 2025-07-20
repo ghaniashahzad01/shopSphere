@@ -3,7 +3,10 @@ import { FaUsers, FaGlobe, FaStore } from "react-icons/fa";
 
 const AboutUs = () => {
   return (
-    <div id="about" className="bg-gray-100 dark:bg-slate-900 dark:text-white py-16 px-6">
+    <div
+      id="about"
+      className="bg-gray-100 dark:bg-slate-900 dark:text-white py-16 px-6"
+    >
       <div className="container mx-auto max-w-5xl text-center">
         <h2
           className="text-4xl font-bold mb-6 text-primary"
@@ -16,7 +19,11 @@ const AboutUs = () => {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          Welcome to <span className="font-semibold text-secondary">ShopMe</span> — your one-stop destination for the latest trends in fashion, electronics, and lifestyle products. We are dedicated to delivering quality, value, and style to every customer.
+          Welcome to{" "}
+          <span className="font-semibold text-secondary">ShopSphere</span> —
+          your one-stop destination for the latest trends in fashion,
+          electronics, and lifestyle products. We are dedicated to delivering
+          quality, value, and style to every customer.
         </p>
 
         <div className="grid md:grid-cols-3 gap-8 text-left">
@@ -30,7 +37,9 @@ const AboutUs = () => {
             <FaUsers className="text-4xl text-primary mb-4" />
             <h3 className="text-xl font-semibold mb-2">Our Story</h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Founded in 2024, ShopMe started with a vision to make fashion accessible to all. Today, we serve thousands of happy customers across the country.
+              Founded in 2024, <strong>ShopSphere</strong> began with a vision to
+              make fashion and tech accessible to everyone. Today, we proudly
+              serve thousands of satisfied customers across the nation.
             </p>
           </div>
 
@@ -44,7 +53,9 @@ const AboutUs = () => {
             <FaStore className="text-4xl text-primary mb-4" />
             <h3 className="text-xl font-semibold mb-2">What We Offer</h3>
             <p className="text-gray-600 dark:text-gray-300">
-              From stylish apparel to the latest gadgets, our curated collections are designed to suit every taste and budget — with seasonal offers and top-rated deals.
+              From premium apparel to cutting-edge gadgets, our collections are
+              curated to suit every taste and budget — enhanced with exclusive
+              offers and top-rated deals.
             </p>
           </div>
 
@@ -58,7 +69,9 @@ const AboutUs = () => {
             <FaGlobe className="text-4xl text-primary mb-4" />
             <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
             <p className="text-gray-600 dark:text-gray-300">
-              We aim to empower customers through high-quality products and unmatched customer service — while building a community of style and innovation.
+              At <strong>ShopSphere</strong>, we aim to empower individuals through
+              quality products and unmatched customer service—building a
+              thriving community rooted in style, innovation, and trust.
             </p>
           </div>
         </div>

@@ -10,70 +10,118 @@ const ProductsData = [
     img: Img1,
     title: "Casual Wear",
     description: "Comfortable and stylish everyday outfit perfect for a relaxed look.",
+    rating: 4.8,
   },
   {
     id: 2,
     img: Img2,
     title: "Printed Shirt",
     description: "Trendy printed shirt that adds a splash of personality to your style.",
+    rating: 4.5,
   },
   {
     id: 3,
     img: Img3,
     title: "Women's Shirt",
     description: "Elegant and modern shirt designed for confident and stylish women.",
+    rating: 4.9,
   },
 ];
 
 const TopProducts = ({ handleOrderPopup }) => {
   return (
-    <div>
+    <div className="py-16 bg-gray-100 dark:bg-slate-900">
       <div className="container">
-        {/* Header section */}
-        <div className="text-left mb-24">
-          <p data-aos="fade-up" className="text-sm text-primary">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <p
+            data-aos="fade-up"
+            className="text-primary text-sm uppercase tracking-wider mb-2"
+          >
             Top Rated Products for You
           </p>
-          <h1 data-aos="fade-up" className="text-3xl font-bold">
+          <h1
+            data-aos="fade-up"
+            className="text-4xl font-bold dark:text-white"
+          >
             Best Products
           </h1>
-          <p data-aos="fade-up" className="text-xs text-gray-400">
+          <p
+            data-aos="fade-up"
+            className="text-gray-500 dark:text-gray-300 text-sm mt-2"
+          >
             Explore our top-selling, high-quality clothing handpicked just for you.
           </p>
         </div>
 
-        {/* Body section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 md:gap-5 place-items-center">
+        {/* Products grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 md:gap-10 place-items-center">
           {ProductsData.map((data) => (
             <div
               key={data.id}
               data-aos="zoom-in"
-              className="rounded-2xl bg-white dark:bg-gray-800 hover:bg-black/80 dark:hover:bg-primary hover:text-white relative shadow-xl duration-300 group max-w-[300px]"
+              className="
+                bg-white/30
+                dark:bg-white/10
+                backdrop-blur-lg
+                rounded-2xl
+                relative
+                overflow-hidden
+                shadow-lg
+                hover:shadow-2xl
+                transition
+                duration-300
+                group
+                max-w-xs
+                w-full
+                cursor-pointer
+              "
             >
-              {/* image section */}
-              <div className="h-[100px]">
-                <img
-                  src={data.img}
-                  alt={data.title}
-                  className="max-w-[140px] block mx-auto transform -translate-y-20 group-hover:scale-105 duration-300 drop-shadow-md"
-                />
+            {/* fancy gradient ring behind image */}
+            <div className="relative flex justify-center pt-6">
+               <div className="absolute w-36 h-36 rounded-full bg-gradient-to-tr from-primary to-secondary blur-xl opacity-30 group-hover:opacity-50 transition"></div>
+                  <img
+                     src={data.img}
+                     alt={data.title}
+                       className="relative w-36 h-36 object-contain transform group-hover:scale-110 transition duration-300 drop-shadow-lg"
+                   />
               </div>
 
-              {/* details section */}
-              <div className="p-4 text-center">
+
+              {/* content */}
+              <div className="p-6 text-center">
                 {/* star rating */}
-                <div className="w-full flex items-center justify-center gap-1">
-                  <FaStar className="text-yellow-500" />
-                  <FaStar className="text-yellow-500" />
-                  <FaStar className="text-yellow-500" />
-                  <FaStar className="text-yellow-500" />
+                <div className="flex justify-center items-center gap-1 mb-3">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <FaStar
+                      key={i}
+                      className={`text-yellow-400 ${i < Math.round(data.rating) ? "" : "opacity-30"}`}
+                    />
+                  ))}
+                  <span className="text-sm text-gray-500 dark:text-gray-300 ml-2">
+                    ({data.rating.toFixed(1)})
+                  </span>
                 </div>
-                <h1 className="text-xl font-bold">{data.title}</h1>
-                <p className="text-gray-500 group-hover:text-white duration-300 text-sm line-clamp-2">
+
+                <h3 className="text-xl font-semibold dark:text-white">
+                  {data.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
                   {data.description}
                 </p>
                 <button
-                  className="bg-primary hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-4 group-hover:bg-white group-hover:text-primary"
+                  className="
+                    mt-6
+                    bg-gradient-to-r from-primary to-secondary
+                    text-white
+                    px-5 py-2
+                    rounded-full
+                    font-semibold
+                    transition
+                    duration-300
+                    hover:brightness-110
+                    hover:scale-105
+                  "
                   onClick={handleOrderPopup}
                 >
                   Order Now

@@ -5,45 +5,50 @@ const Popup = ({ orderPopup, setOrderPopup }) => {
   return (
     <>
       {orderPopup && (
-        <div className="popup">
-          <div className="h-screen w-screen fixed top-0 left-0 bg-black/50 z-50 backdrop-blur-sm">
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 shadow-md bg-white dark:bg-gray-900 rounded-md duration-200 w-[300px]">
-              {/* header */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <h1>Order Now</h1>
-                </div>
-                <div>
-                  <IoCloseOutline
-                    className="text-2xl cursor-pointer "
-                    onClick={() => setOrderPopup(false)}
-                  />
-                </div>
-              </div>
-              {/* form section */}
-              <div className="mt-4">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className=" w-full rounded-full border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-2 py-1 mb-4"
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className=" w-full rounded-full border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-2 py-1 mb-4"
-                />
-                <input
-                  type="text"
-                  placeholder="Address"
-                  className=" w-full rounded-full border border-gray-300 dark:border-gray-500 dark:bg-gray-800 px-2 py-1 mb-4"
-                />
-                <div className="flex justify-center">
-                  <button className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full ">
-                    Order Now
-                  </button>
-                </div>
-              </div>
-            </div>
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4">
+          <div
+            className="w-full max-w-sm sm:max-w-md bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 relative animate-fadeIn"
+            data-aos="zoom-in"
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setOrderPopup(false)}
+              className="absolute top-3 right-3 text-2xl text-gray-500 hover:text-primary transition-all"
+            >
+              <IoCloseOutline />
+            </button>
+
+            {/* Title */}
+            <h2 className="text-2xl sm:text-3xl font-bold text-center text-primary dark:text-white mb-4">
+              Complete Your Order
+            </h2>
+
+            {/* Input Fields */}
+            <form className="flex flex-col gap-4">
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="w-full rounded-lg px-4 py-2 bg-gray-100 dark:bg-slate-700 border border-gray-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-primary transition"
+              />
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="w-full rounded-lg px-4 py-2 bg-gray-100 dark:bg-slate-700 border border-gray-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-primary transition"
+              />
+              <input
+                type="text"
+                placeholder="Shipping Address"
+                className="w-full rounded-lg px-4 py-2 bg-gray-100 dark:bg-slate-700 border border-gray-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-primary transition"
+              />
+
+              {/* Order Button */}
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-6 rounded-full font-semibold shadow-md"
+              >
+                Order Now
+              </button>
+            </form>
           </div>
         </div>
       )}

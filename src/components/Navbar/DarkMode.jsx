@@ -1,15 +1,14 @@
-import React from "react";
-import LightButton from "../../assets/website/light-mode-button.png";
-import DarkButton from "../../assets/website/dark-mode-button.png";
+import React, { useEffect, useState } from "react";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const DarkMode = () => {
-  const [theme, setTheme] = React.useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "light"
   );
 
-  const element = document.documentElement; // html element
+  const element = document.documentElement;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (theme === "dark") {
       element.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -19,23 +18,22 @@ const DarkMode = () => {
     }
   }, [theme]);
 
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
-    <div className="relative">
-      <img
-        src={LightButton}
-        alt=""
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className={`w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.1)] transition-all duration-300 absolute right-0 z-10 ${
-          theme === "dark" ? "opacity-0" : "opacity-100"
-        } `}
-      />
-      <img
-        src={DarkButton}
-        alt=""
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className="w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.1)] transition-all duration-300"
-      />
-    </div>
+    <button
+      onClick={toggleTheme}
+      aria-label="Toggle Dark Mode"
+      className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-yellow-300 transition-all duration-300 hover:scale-110"
+    >
+      {theme === "dark" ? (
+        <FiSun className="text-xl animate-spin-slow" />
+      ) : (
+        <FiMoon className="text-xl" />
+      )}
+    </button>
   );
 };
 
