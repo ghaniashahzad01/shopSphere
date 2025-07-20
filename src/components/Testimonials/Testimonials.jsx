@@ -36,8 +36,8 @@ const Testimonials = () => {
     speed: 500,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
-    cssEase: "ease-in-out",
+    autoplaySpeed: 2000,
+    cssEase: "linear",
     pauseOnHover: true,
     pauseOnFocus: true,
     responsive: [
@@ -46,6 +46,7 @@ const Testimonials = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
+          infinite: true,
         },
       },
       {
@@ -53,6 +54,7 @@ const Testimonials = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 2,
         },
       },
       {
@@ -66,63 +68,50 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="py-16 bg-gray-100 dark:bg-slate-900">
+    <div className="py-10 mb-10">
       <div className="container">
         {/* header section */}
-        <div className="text-center mb-14 max-w-xl mx-auto">
-          <p data-aos="fade-up" className="text-primary text-sm tracking-wider uppercase mb-2">
+        <div className="text-center mb-10 max-w-[600px] mx-auto">
+          <p data-aos="fade-up" className="text-sm text-primary">
             What our customers are saying
           </p>
-          <h1 data-aos="fade-up" className="text-4xl font-bold dark:text-white">
+          <h1 data-aos="fade-up" className="text-3xl font-bold">
             Testimonials
           </h1>
-          <p data-aos="fade-up" className="text-gray-500 dark:text-gray-300 text-sm mt-2">
+          <p data-aos="fade-up" className="text-xs text-gray-400">
             Hear from real customers who trust ShopMe for quality, value, and exceptional service.
           </p>
         </div>
 
-        {/* testimonials slider */}
-        <Slider {...settings}>
-          {TestimonialData.map((data) => (
-            <div key={data.id} className="p-4">
-              <div
-                className="
-                  bg-white/20
-                  dark:bg-white/10
-                  backdrop-blur-lg
-                  rounded-2xl
-                  shadow-xl
-                  p-8
-                  relative
-                  hover:scale-105
-                  transition-transform
-                  duration-300
-                "
-              >
-                {/* background quote mark */}
-                <span className="absolute text-[10rem] font-serif text-primary/10 top-0 left-4 -translate-y-1/2 pointer-events-none select-none">
-                  “
-                </span>
-
-                <div className="flex flex-col items-center gap-4 relative z-10">
-                  <img
-                    src={data.img}
-                    alt={data.name}
-                    className="rounded-full w-24 h-24 border-4 border-primary object-cover shadow-md"
-                  />
-
-                  <p className="text-center text-gray-700 dark:text-gray-200 text-sm mt-4 italic leading-relaxed">
-                    “{data.text}”
-                  </p>
-
-                  <h3 className="mt-4 font-semibold text-primary dark:text-primary text-lg">
-                    {data.name}
-                  </h3>
+        {/* Testimonial cards */}
+        <div data-aos="zoom-in">
+          <Slider {...settings}>
+            {TestimonialData.map((data) => (
+              <div key={data.id} className="my-6">
+                <div className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-slate-600 bg-primary/10 relative">
+                  <div className="mb-4 flex justify-center">
+                    <img
+                      src={data.img}
+                      alt={data.name}
+                      className="rounded-full w-20 h-20"
+                    />
+                  </div>
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="space-y-3 text-center">
+                      <p className="text-sm dark:text-slate-300 text-gray-600">
+                        “{data.text}”
+                      </p>
+                      <h1 className="text-lg font-semibold dark:text-slate-200 text-black/80">
+                        {data.name}
+                      </h1>
+                    </div>
+                  </div>
+                  <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">“</p>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
       </div>
     </div>
   );
