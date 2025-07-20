@@ -3,87 +3,64 @@ import { FaUsers, FaGlobe, FaStore } from "react-icons/fa";
 
 const AboutUs = () => {
   return (
-    <div
-      id="about"
-      className="bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 dark:text-white py-16 px-6"
-    >
-      <div className="container mx-auto max-w-6xl text-center">
-        {/* Heading */}
+    <div id="about" className="bg-gray-100 dark:bg-slate-900 dark:text-white py-16 px-6">
+      <div className="container mx-auto max-w-5xl text-center">
         <h2
-          className="text-4xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary inline-block"
+          className="text-4xl font-bold mb-6 text-primary"
           data-aos="fade-up"
         >
           About Us
         </h2>
-        <div
-          className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6 rounded-full"
-          data-aos="fade-up"
-          data-aos-delay="50"
-        ></div>
-
-        {/* Subheading */}
         <p
-          className="text-gray-700 dark:text-gray-300 text-lg mb-12 max-w-3xl mx-auto"
+          className="text-gray-700 dark:text-gray-300 text-lg mb-10"
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          Welcome to{" "}
-          <span className="font-semibold text-primary">ShopSphere</span> — your
-          ultimate destination for fashion, electronics, and lifestyle
-          products. We're committed to quality, value, and helping you express
-          your style.
+          Welcome to <span className="font-semibold text-secondary">ShopMe</span> — your one-stop destination for the latest trends in fashion, electronics, and lifestyle products. We are dedicated to delivering quality, value, and style to every customer.
         </p>
 
-        {/* Grid Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 text-left">
           {/* Our Story */}
           <div
-            className="bg-white/80 dark:bg-white/10 backdrop-blur p-8 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+            className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow hover:shadow-lg duration-200 active:scale-95 transform transition-transform cursor-pointer"
             onClick={() => console.log("Clicked: Our Story")}
-            data-aos="fade-up"
+            data-aos="zoom-in"
             data-aos-delay="200"
           >
-            <FaUsers className="text-5xl mb-4 text-primary group-hover:text-secondary transition-colors duration-300" />
-            <h3 className="text-2xl font-semibold mb-3">Our Story</h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-              Founded in 2024, ShopSphere started with a mission to make
-              high-quality fashion and tech accessible for all. Today, we serve
-              thousands of happy customers nationwide.
+            <FaUsers className="text-4xl text-primary mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Our Story</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Founded in 2024, ShopMe started with a vision to make fashion accessible to all. Today, we serve thousands of happy customers across the country.
             </p>
           </div>
 
           {/* What We Offer */}
           <div
-            className="bg-white/80 dark:bg-white/10 backdrop-blur p-8 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+            className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow hover:shadow-lg duration-200 active:scale-95 transform transition-transform cursor-pointer"
             onClick={() => console.log("Clicked: What We Offer")}
-            data-aos="fade-up"
+            data-aos="zoom-in"
             data-aos-delay="300"
           >
-            <FaStore className="text-5xl mb-4 text-primary group-hover:text-secondary transition-colors duration-300" />
-            <h3 className="text-2xl font-semibold mb-3">What We Offer</h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-              From trendy apparel to the newest gadgets, our collections cater
-              to every style and budget, featuring seasonal promotions and
-              exclusive deals.
+            <FaStore className="text-4xl text-primary mb-4" />
+            <h3 className="text-xl font-semibold mb-2">What We Offer</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              From stylish apparel to the latest gadgets, our curated collections are designed to suit every taste and budget — with seasonal offers and top-rated deals.
             </p>
           </div>
 
-            {/* Our Mission */}
+          {/* Our Mission */}
           <div
-            className="bg-white/80 dark:bg-white/10 backdrop-blur p-8 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+            className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow hover:shadow-lg duration-200 active:scale-95 transform transition-transform cursor-pointer"
             onClick={() => console.log("Clicked: Our Mission")}
-            data-aos="fade-up"
+            data-aos="zoom-in"
             data-aos-delay="400"
           >
-            <FaGlobe className="text-5xl mb-4 text-primary group-hover:text-secondary transition-colors duration-300" />
-            <h3 className="text-2xl font-semibold mb-3">Our Mission</h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-              We strive to empower customers through high-quality products and
-              exceptional service, fostering a community of innovation and
-              style.
+            <FaGlobe className="text-4xl text-primary mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              We aim to empower customers through high-quality products and unmatched customer service — while building a community of style and innovation.
             </p>
           </div>
-        
         </div>
       </div>
     </div>
